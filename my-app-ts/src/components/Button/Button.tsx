@@ -1,17 +1,20 @@
 import { Button } from "@chakra-ui/react"
-import { login } from "../../services/login"
+import { MouseEventHandler } from "react"
 
 interface Label{
   label: string
+  bgcolor: string
+  onClick: MouseEventHandler
 }
 
-const Btn = ({label}: Label) => {
+
+const Btn = ({label, bgcolor, onClick}: Label) => {
   return(
-    <Button onClick={login} _hover={{
-      background: "#932ED1",
+    <Button onClick={onClick} _hover={{
+      background: bgcolor,
       color: "white",
       opacity: "0.9"
-    }} color={"white"} bg={"#932ED1"}>{label}</Button>
+    }} color={"white"} bg={bgcolor}>{label}</Button>
   )
 }
 
